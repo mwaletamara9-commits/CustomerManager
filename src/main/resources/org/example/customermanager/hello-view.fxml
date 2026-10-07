@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.customermanager.HelloController">
+    <children>
+        <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Customer Manager - ICT261 Lab" />
+        <GridPane hgap="10.0" vgap="10.0">
+            <children>
+                <Label text="Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="nameField" promptText="Enter name" GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS"/>
+
+                <Label text="Province:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="provinceComboBox" promptText="Select Province" prefWidth="200.0" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="Phone:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="phoneField" promptText="e.g. 0971234567" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                <HBox spacing="10.0" GridPane.rowIndex="3" GridPane.columnIndex="1">
+                    <children>
+                        <Button text="Add Customer" onAction="#onAddButtonClick" defaultButton="true"/>
+                        <Button text="Delete Selected" onAction="#onDeleteButtonClick" style="-fx-base: #ffcccc;"/>
+                    </children>
+                </HBox>
+            </children>
+        </GridPane>
+        <Label text="Customers:"/>
+        <TableView fx:id="customerTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="nameColumn" text="Name" prefWidth="150.0" />
+                <TableColumn fx:id="provinceColumn" text="Province" prefWidth="150.0" />
+                <TableColumn fx:id="phoneColumn" text="Phone" prefWidth="150.0" />
+            </columns>
+        </TableView>
+        <Label text="Tip: Press ENTER to add, DELETE key to delete, TAB to navigate" style="-fx-font-size: 10px; -fx-text-fill: gray;"/>
+    </children>
+    <padding><Insets top="10.0" right="10.0" bottom="10.0" left="10.0"/></padding>
+</VBox>
